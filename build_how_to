@@ -1,0 +1,12 @@
+### cat Dockerfile 
+FROM centos/systemd 
+RUN yum install epel-release -y
+RUN yum install nginx -y 
+RUN yum install net-tools netcat bind-utils  -y 
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# Открываем порты
+EXPOSE 80
+EXPOSE 443
+##################################################
+
+sudo docker build -t centos_nginx:latest  . ### how to build new image with Docker file
