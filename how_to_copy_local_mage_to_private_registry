@@ -1,0 +1,7 @@
+### copy from local machine to private registry  ###
+### docker tag your own image ###
+### then copy in to private registry ###
+skopeo copy docker-daemon:<registry>/path/ci90000011_osad/k8s/c7nginx:latest docker://<registry>/path/ci90000011_osad/k8s/c7nginx 
+
+### show last images in private registry ###
+skopeo list-tags docker://<regustry_url>/ci90000011_osad/k8s/etcd
