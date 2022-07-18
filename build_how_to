@@ -1,12 +1,11 @@
-### cat Dockerfile 
-FROM centos/systemd 
-RUN yum install epel-release -y
+FROM kuabh2012/centos7-systemd
+RUN yum install epel-release -y 
 RUN yum install nginx -y 
 RUN yum install net-tools netcat bind-utils  -y 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
-# Открываем порты
-EXPOSE 80
-EXPOSE 443
-##################################################
+RUN rm /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/             ### add file from local mechine without ipv6 string
+ADD index.html /usr/share/nginx/html/  ### add file from local machine because file by default does not exist
+EXPOSE 80/tcp
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-sudo docker build -t centos_nginx:latest  . ### how to build new image with Docker file
+sudo docker build -t debug-pod:v1  . ### how to build new image with Docker file
