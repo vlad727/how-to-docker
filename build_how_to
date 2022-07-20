@@ -1,6 +1,5 @@
 FROM kuabh2012/centos7-systemd
-RUN yum install epel-release -y
-RUN yum install nginx net-tools netcat bind-utils  -y 
+RUN yum install epel-release -y && yum install nginx net-tools netcat bind-utils  -y 
 RUN rm /etc/nginx/nginx.conf
 ADD nginx.conf /etc/nginx/
 ADD index.html /usr/share/nginx/html/
@@ -10,4 +9,4 @@ chmod 640 /var/log/nginx/error.log
 EXPOSE 80/tcp
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-sudo docker build -t debug-pod:v1  . ### how to build new image with Docker file
+### sudo docker build -t debug-pod:v1  . ### how to build new image with Docker file
