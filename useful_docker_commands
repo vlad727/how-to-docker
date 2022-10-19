@@ -12,5 +12,12 @@ sftp -P 2220 user@localhost ### -P to provide another port for connection
 ### docker restart policy ###
 docker container run --name always-policy --restart always alpine sleep 10 ### after 10 second docker run container again, to check docker inspect <container> | grep grep -i restartcount
 
+### policies ###
+no - by default
+on-failure - restart after error
+alway - always restart even docker daemon were restarted (restart docker) even container were stopped 
+unless-stopped	almost the same as always, but if you do docker stop, it won't start after docker restart 
+docker update –restart unless-stopped mycontainer ### update policy 
+
 ### docker commit changes ###
 docker commit -m "added Node.js" -a "admin" 2c8ec46adae1 admin/ubuntu-nodejs
