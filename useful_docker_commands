@@ -6,5 +6,5 @@
 
 ### run container with user and pass ###
 example with sftp:
-docker run  -d -p 2220:22 f7bffa711d49  user:pass
+docker run  -d -p 2220:22 f7bffa711d49  user:pass ### user that is user for container and string pass for user 
 sftp -P 2220 user@localhost ### -P to provide another port for connection
