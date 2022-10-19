@@ -8,3 +8,7 @@
 example with sftp:
 docker run  -d -p 2220:22 f7bffa711d49  user:pass ### user that is user for container and string pass for user 
 sftp -P 2220 user@localhost ### -P to provide another port for connection
+
+### docker restart policy ###
+docker container run --name always-policy --restart always alpine sleep 10 ### after 10 second docker run container again, to check docker inspect <container> | grep grep -i restartcount
+
