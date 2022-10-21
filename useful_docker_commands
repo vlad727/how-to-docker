@@ -12,7 +12,7 @@ sftp -P 2220 user@localhost ### -P to provide another port for connection
 ### docker restart policy ###
 docker container run --name always-policy --restart always alpine sleep 10 ### after 10 second docker run container again, to check docker inspect <container> | grep grep -i restartcount
 
-### policies ###
+### List of policies for start run container ###
 no - by default
 on-failure - restart after error
 alway - always restart even docker daemon were restarted (restart docker) even container were stopped 
