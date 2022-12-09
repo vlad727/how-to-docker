@@ -24,3 +24,6 @@ docker commit -m "added Node.js" -a "admin" 2c8ec46adae1 admin/ubuntu-nodejs
 
 ### mount volume to container and  add files ###
 docker run -d  --volume /Users/19990635/docker_work/debug-pod-for-k8s:/nginx-conf-file d5501ebe5706 
+
+### история сборки официального образа ###
+docker pull nginx, docker history nginx --no-trunc -- 
