@@ -27,3 +27,6 @@ docker run -d  --volume /Users/19990635/docker_work/debug-pod-for-k8s:/nginx-con
 
 ### история сборки официального образа ###
 docker pull nginx, docker history nginx --no-trunc -- 
+
+### exec under non root user ###
+docker exec -ti --user nginx  186afe1a2ef5  /bin/bash
