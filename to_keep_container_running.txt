@@ -1,0 +1,11 @@
+Method 1: You can use the -t (pseudo-tty) docker parameter to keep the container running.
+
+docker run -d -t ubuntu
+
+Method 2: You can run the container directly passing the tail command via arguments as shown below.
+
+ docker run -d ubuntu tail -f /dev/null
+ 
+Method 3: Another method is to execute a sleep command to infinity.
+
+docker run -d ubuntu sleep infinity
