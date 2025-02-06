@@ -30,3 +30,6 @@ docker pull nginx, docker history nginx --no-trunc --
 
 ### exec under non root user ###
 docker exec -ti --user nginx  186afe1a2ef5  /bin/bash
+
+### how to specify Dockerfile if you already have such file in current dir ###
+docker build -t postgres-go-13 -f Dockerfile1 .
