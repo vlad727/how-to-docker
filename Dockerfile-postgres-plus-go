@@ -1,0 +1,18 @@
+FROM <your-private-registry>/your-project/postgres-13:0.0.1
+
+# Установим необходимые зависимости для сборки Go
+RUN apt-get update && \
+    apt-get install -y curl git build-essential
+WORKDIR /app
+# Скачаем и установим последнюю версию Go
+ENV GO_VERSION="1.23.6"
+ENV GOPATH="/usr/local/go"
+ENV PATH="${GOPATH}/bin:${PATH}"
+### file tar.gz download from official site golang 
+COPY go1.23.6.linux-amd64.tar.gz /app
+RUN tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz && \
+    rm go${GO_VERSION}.linux-amd64.tar.gz
+
+# Проверка версии Go
+RUN go version
+
